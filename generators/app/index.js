@@ -60,6 +60,7 @@ module.exports = yeoman.generators.Base.extend({
      	 	this.folderNameDev = props.folderNameDev;
      	 	this.folderNamePro = props.folderNamePro;
      	 	this.eslint = props.eslint;
+        this.style = props.style;
     	  	done();
 	    }.bind(this));
   	},
