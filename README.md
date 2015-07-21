@@ -3,16 +3,16 @@
 
 1.Clone from github
 
-    `git clone https://github.com/CliffLin/generator-cscc`
+    git clone https://github.com/CliffLin/generator-cscc
 
 2.Install dependencies
 
-    `npm install`
+    npm install
   
 3.Create link for yeoman to use
 
-    `npm link`
+    npm link
   
 4.Start to use
 
-    `yo cscc`
+    yo cscc
