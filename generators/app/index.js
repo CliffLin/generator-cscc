@@ -60,7 +60,6 @@ module.exports = yeoman.generators.Base.extend({
      	 	this.folderNameDev = props.folderNameDev;
      	 	this.folderNamePro = props.folderNamePro;
      	 	this.eslint = props.eslint;
-        this.style = props.style;
     	  	done();
 	    }.bind(this));
   	},
@@ -80,7 +79,8 @@ module.exports = yeoman.generators.Base.extend({
 		        this.destinationPath('client/webpack.config.js'),
 		        { 
 		        	folder: this.folderNameDev,
-		        	eslint: this.eslint
+		        	eslint: this.eslint,
+					    style: this.style
 		        }
     		);
     		this.fs.copyTpl(
@@ -88,7 +88,8 @@ module.exports = yeoman.generators.Base.extend({
 		        this.destinationPath('client/webpack.production.config.js'),
 		        { 
 		        	folder: this.folderNamePro,
-		        	eslint: this.eslint
+		        	eslint: this.eslint,
+              style: this.style
 		        }
     		);
 
@@ -100,7 +101,7 @@ module.exports = yeoman.generators.Base.extend({
 		      			bootstrap: this.bootstrap,
 		      			style: this.style,
 		      			material: this.material,
-		      			eslint: this.eslintØ
+                eslint: this.eslintØ
 		      		}
     		);
 
@@ -134,7 +135,7 @@ module.exports = yeoman.generators.Base.extend({
     		for (var i in this.routers) {
     			this.fs.copyTpl(
       			this.templatePath('src/js/components/_page.jsx'),
-		        this.destinationPath('client/src/js/components/'+this.routers[i]+'.jsx'),
+		        this.destinationPath('client/src/js/components/pages/'+this.routers[i]+'.jsx'),
 		      		{ 
 		      			title: this.routers[i] ,
 		      			material: this.material
