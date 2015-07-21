@@ -1,6 +1,5 @@
 #How To Install
 ===============
-
 1.Clone from github
 
     git clone https://github.com/CliffLin/generator-cscc
