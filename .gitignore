@@ -1,1 +1,3 @@
 node_modules/
+
+generators/app/templates/.webpack.config.js.swp

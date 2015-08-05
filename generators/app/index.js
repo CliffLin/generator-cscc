@@ -23,15 +23,13 @@ module.exports = yeoman.generators.Base.extend({
     		message: 'css or less or sass ?',
     		default: "css"
     	}, {
-    		type: 'confirm',
     		name: "material",
-    		message: "material ui or not ?",
-    		default: true
+    		message: "material ui or not ? (Y/N)",
+    		default: 'Y'
     	}, {
-    		type: 'confirm',
     		name: "bootstrap",
-    		message: "bootstrap or not ?",
-    		default: true
+    		message: "bootstrap or not ? (Y/N)",
+    		default: 'Y'
     	}, {
     		name: "routers",
     		message: "what routes do you want to create ? (use , to split)",
@@ -45,21 +43,20 @@ module.exports = yeoman.generators.Base.extend({
     		message: "what folder name do you want to build for production",
     		default: "build"
     	}, {
-    		typyeoe: "confirm",
     		name: "eslint",
-    		message: "do you want to check coding style?",
-    		default: true
+    		message: "do you want to check coding style? (Y/N)",
+    		default: 'Y'
     	}];
 
     	this.prompt(prompts, function (props) {
      	 	this.appName = props.appName;
-     	 	this.style = props.style;
-     	 	this.material = props.material;
-     	 	this.bootstrap = props.bootstrap;
+     	 	this.style = props.style ;
+     	 	this.material = (props.material=='Y') ? true : false;
+     	 	this.bootstrap = (props.bootstrap=='Y') ? true : false;
      	 	this.routers = props.routers.split(",");
      	 	this.folderNameDev = props.folderNameDev;
      	 	this.folderNamePro = props.folderNamePro;
-     	 	this.eslint = props.eslint;
+     	 	this.eslint = (props.eslint=='Y') ? true : false;
     	  	done();
 	    }.bind(this));
   	},
@@ -80,7 +77,7 @@ module.exports = yeoman.generators.Base.extend({
 		        { 
 		        	folder: this.folderNameDev,
 		        	eslint: this.eslint,
-					    style: this.style
+					style: this.style
 		        }
     		);
     		this.fs.copyTpl(
@@ -101,7 +98,7 @@ module.exports = yeoman.generators.Base.extend({
 		      			bootstrap: this.bootstrap,
 		      			style: this.style,
 		      			material: this.material,
-                eslint: this.eslintØ
+                		eslint: this.eslint
 		      		}
     		);
 
@@ -130,7 +127,7 @@ module.exports = yeoman.generators.Base.extend({
     		);
     		this.fs.copy(
       			this.templatePath('src/js/components/NotFound.jsx'),
-		        this.destinationPath('client/src/js/components/NotFound.jsx')
+		        this.destinationPath('client/src/js/components/pages/NotFound.jsx')
     		);
     		for (var i in this.routers) {
     			this.fs.copyTpl(
