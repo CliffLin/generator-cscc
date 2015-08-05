@@ -3,7 +3,7 @@
 
     git clone https://github.com/CliffLin/generator-cscc
 
-2.Install dependencies
+2.Install dependencies （optional）
 
     npm install
   
