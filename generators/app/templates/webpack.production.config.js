@@ -3,13 +3,14 @@ var webpack = require('webpack');
 
 module.exports = {
 	entry: {
-		bundle:["./src/index.html","./src/boot.js"]   		
+		bundle:["./client/src/index.html","./client/src/boot.js"]   		
 	},
+	/*
 	resolve: {
 		alias: {'react':'react/dist/react.min.js'}
-	},
+	},*/
 	output: {
-		path: path.resolve(__dirname,'<%= folder%>'),
+		path: path.resolve(__dirname,'./client/<%= folder%>'),
 		filename: '[name].js'
 	},
 	module: {
@@ -17,7 +18,7 @@ module.exports = {
 		preLoaders:[{
             test:    /\.jsx?$/,
             exclude: /node_modules/,
-            include: Path.resolve(__dirname, 'src/'),
+            include: Path.resolve(__dirname, './client/src/'),
             loaders: ['eslint-loader']
         }],<% }%>
 		loaders: [
@@ -25,9 +26,9 @@ module.exports = {
 			{ test: /\.(jsx|js)/, loader: 'jsx-loader' },
             { test: /\.(js|jsx)/, loader:'babel?stage=1'},
 			{ test: /\.css$/, loader: "style!css"},
-			<% if (style==='sass') { %>{ test: /\.sass$/, loader: "style!css!sass" <% } %> },
-			<% if (style==='less') { %>{ test: /\.less$/, loader: "style!css!less" <% } %> },
-			{ test: /\.(html)$/, loader: "file?name=[path][name].[ext]&context=./app"}
+			<% if (style==='sass') { %>{ test: /\.sass$/, loader: "style!css!sass"}, <% } %> 
+			<% if (style==='less') { %>{ test: /\.less$/, loader: "style!css!less"}, <% } %>
+			{ test: /\.(html)$/, loader: "file?name=[path][name].[ext]&context=./client/src"}
 		],
 	},
 	plugins: [ 

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --colors --devtool eval --hot --content-base dev",
-    "build": "NODE_ENV=production webpack -p --progress  --config ./webpack.production.config.js"
+    "dev": "webpack-dev-server --colors --devtool eval --hot --content-base ./client/dev --config ./client/webpack.config",
+    "build": "NODE_ENV=production webpack -p --progress  --config ./client/webpack.production.config.js"
   },
   "author": "",
   "license": "ISC",
