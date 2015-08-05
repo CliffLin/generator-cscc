@@ -13,7 +13,8 @@
   "dependencies": {
     "alt": "^0.16.7",
     "autoprefixer-loader": "^2.0.0",
-    <% if (eslint) {%>"babel-eslint": "^1.0.13",
+    "jsx-loader": "^0.13.2",
+	<% if (eslint) {%>"babel-eslint": "^1.0.13",
     "eslint": "^0.24.1",
     "eslint-loader": "^0.14.1",
     "eslint-plugin-react": "^2.7.0",<% }%>
@@ -21,7 +22,7 @@
     "babel-jest": "^5.2.0",
     "babel-loader": "^5.2.2",
     <% if (bootstrap) { %>"bootstrap": "^3.3.5",<% } %>
-    <% if (style==='saas') { %>"sass-loader":"^1.0.2", <% } %>
+    <% if (style==='sass') { %>"sass-loader":"^1.0.2", <% } %>
     <% if (style==='less') { %>"less-loader":"^2.2.0", <% } %>
     "css-loader": "^0.14.4",
     "esprima-fb": "^15001.1.0-dev-harmony-fb",
@@ -29,8 +30,6 @@
     "jest": "^0.1.40",
     "jest-cli": "^0.4.5",
     "json-loader": "^0.5.2",
-    "less": "^2.5.1",
-    "less-loader": "^2.2.0",
     <% if (material) { %>"material-ui": "^0.9.2",<% } %>
     "normalize.less": "^1.0.0",
     "object-assign": "^3.0.0",
