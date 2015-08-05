@@ -1,8 +1,10 @@
 var path = require("path");
-
+var webpack = require("webpack");
 module.exports = {
 	entry: {
-		bundle:['webpack/hot/dev-server',"./src/index.html","./src/boot.js"]
+		bundle:['webpack/hot/dev-server',
+				path.resolve(__dirname,"src/index.html"),
+				path.resolve(__dirname."src/boot.js")]
 	},
 	output: {
 		path: path.resolve(__dirname, '<%=folder %>'),
@@ -23,7 +25,11 @@ module.exports = {
 			{ test: /\.css$/, loader: "style!css"},
 			<% if (style==='saas') { %>{ test: /\.sass$/, loader: "style!css!sass" }, <% } %>
 			<% if (style==='less') { %>{ test: /\.less$/, loader: "style!css!less" }, <% } %>
-			{ test: /\.(html)$/, loader: "file?name=[path][name].[ext]&context=./src"}
+			{ test: /\.(html)$/, loader: "file?name=[path][name].[ext]&context=./client/src"}
 		],
 	},
+	plugins: [
+		new webpack.NoErrorsPlugin(),
+		new webpack.HotModuleReplacementPlugin()
+	]
 };
